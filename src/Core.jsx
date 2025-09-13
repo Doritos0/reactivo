@@ -1,12 +1,41 @@
 import './App.css'
 import { Tarjeta } from './Tarjeta'
 
+const usuarios = [
+    {
+        'userName' : 'Doritos0',
+        'name' : 'Marcelo',
+        'initialIsFollowing' : true
+    },
+    {
+        'userName' : 'basto115',
+        'name' : 'Basti',
+        'initialIsFollowing': true
+    },
+    {
+        'userName' : 'AstolfoSupremacy',
+        'name' : 'Andres',
+        'initialIsFollowing': false
+    },
+    {
+        'userName' : 'Q-Quinn',
+        'name' : 'Joaquin',
+        'initialIsFollowing': false
+    }
+]
+
 export function Core(){
     return (
         <>
-            <Tarjeta userName="Doritos0" name="Marcelo" isFollowing={true}/>
-            <Tarjeta userName="Doritos0" name="Marcelo" isFollowing={false}/>
-            <Tarjeta userName="Doritos0" name="Marcelo" />
+            {
+                usuarios.map(({userName, name, initialIsFollowing})=>(
+                    <Tarjeta userName={userName} 
+                    name={name} 
+                    initialIsFollowing={initialIsFollowing}
+                    key={userName} //IDENTIFICADOR UNICO
+                    ></Tarjeta>
+                ))
+            }
         </>
     )
 }
